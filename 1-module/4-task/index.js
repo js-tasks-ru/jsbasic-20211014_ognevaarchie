@@ -1,3 +1,5 @@
 function checkSpam(str) {
-  // ваш код...
-}
+  const ucStr = str.toUpperCase();
+  if (ucStr.includes('XXX') || ucStr.includes('1XBET')) {return true;} 
+  return false;
+} 
