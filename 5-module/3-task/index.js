@@ -2,10 +2,9 @@ function initCarousel() {
   let buttonRight = document.querySelector('.carousel__arrow_right');
   let buttonLeft = document.querySelector('.carousel__arrow_left');
   let carouselInner = document.querySelector('.carousel__inner');
-  let carousel = document.querySelector('.carousel');
-  let slidesCount = document.querySelectorAll('.carousel__slide').length;
-  
-  let carouselWidth = carousel.offsetWidth;
+  let slides = document.querySelectorAll('.carousel__slide');
+  let slidesCount = slides.length;
+  let carouselWidth = slides[0].offsetWidth;
   let currentPosition = 0;
 
   let hideAndShowButtons = function () {
