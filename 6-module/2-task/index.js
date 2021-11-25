@@ -20,9 +20,7 @@ export default class ProductCard {
         detail: product.id, 
         bubbles: true
       });
-    
       card.dispatchEvent(event);
-     
     }); 
 
     this.elem = card;
