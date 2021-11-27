@@ -41,6 +41,40 @@ export default class Carousel {
       }); 
       innerElem.appendChild(slide);
     });
+
+    let buttonRight = carouselMain.querySelector('.carousel__arrow_right');
+    let buttonLeft = carouselMain.querySelector('.carousel__arrow_left');
+    let carouselInner = carouselMain.querySelector('.carousel__inner');
+    let slidesElems = carouselMain.querySelectorAll('.carousel__slide');
+    let slidesCount = slidesElems.length;
+    let currentPosition = 0;
+  
+    let hideAndShowButtons = function () {
+      let carouselWidth = slidesElems[0].offsetWidth;
+      if (currentPosition == carouselWidth * -1 * (slidesCount - 1)) {
+        buttonRight.style.display = 'none';
+      } else {
+        buttonRight.style.display = '';
+      }
+      if (currentPosition == 0) {
+        buttonLeft.style.display = 'none';
+      } else {
+        buttonLeft.style.display = '';
+      }
+    };
+
+    buttonLeft.style.display = 'none';
+
+    buttonRight.onclick = function() {
+      let carouselWidth = slidesElems[0].offsetWidth;
+      carouselInner.style.transform = `translateX(${currentPosition -= carouselWidth}px)`;
+      hideAndShowButtons();
+    };
+    buttonLeft.onclick = function() {
+      let carouselWidth = slidesElems[0].offsetWidth;
+      carouselInner.style.transform = `translateX(${currentPosition += carouselWidth}px)`;
+      hideAndShowButtons();
+    };
     this.elem = carouselMain;
   }
 }
